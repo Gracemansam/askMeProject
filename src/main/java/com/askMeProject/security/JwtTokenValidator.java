@@ -1,4 +1,4 @@
-package com.askMeProject.config.securityConfig;
+package com.askMeProject.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

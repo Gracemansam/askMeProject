@@ -2,7 +2,7 @@ package com.askMeProject.service.implementation;
 
 
 import com.askMeProject.common_constant.CommonConstant;
-import com.askMeProject.config.securityConfig.JwtTokenProvider;
+import com.askMeProject.security.JwtTokenProvider;
 import com.askMeProject.converter.UserConverter;
 import com.askMeProject.dto.LoginRequest;
 import com.askMeProject.dto.UserDTO;

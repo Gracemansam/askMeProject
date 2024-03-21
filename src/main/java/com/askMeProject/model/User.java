@@ -28,7 +28,7 @@ public class User extends BaseEntity {
     private String email;
     private String phoneNumber;
     private String password;
-    private String userName;
+    private String username;
     private String speciality;
     private String qualification;
 //    @ManyToMany(fetch=FetchType.EAGER)

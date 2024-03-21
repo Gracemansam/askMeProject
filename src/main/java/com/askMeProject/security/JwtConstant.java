@@ -1,4 +1,4 @@
-package com.askMeProject.config.securityConfig;
+package com.askMeProject.security;
 
 public class JwtConstant {
 	

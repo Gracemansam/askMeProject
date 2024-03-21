@@ -14,7 +14,7 @@ public class UserConverter {
         patientEntity.setFirstName(userDTO.getFirstName());
         patientEntity.setLastName(userDTO.getLastName());
         patientEntity.setPhoneNumber(userDTO.getPhoneNumber());
-        patientEntity.setUserName(userDTO.getUserName());
+        patientEntity.setUsername(userDTO.getUserName());
         patientEntity.setEmail(userDTO.getEmail());
         return patientEntity;
     }
@@ -23,7 +23,7 @@ public class UserConverter {
         doctorEntity.setFirstName(userDTO.getFirstName());
         doctorEntity.setLastName(userDTO.getLastName());
         doctorEntity.setPassword(userDTO.getPassword());
-        doctorEntity.setUserName(userDTO.getUserName());
+        doctorEntity.setUsername(userDTO.getUserName());
         doctorEntity.setEmail(userDTO.getEmail());
         doctorEntity.setSpeciality(userDTO.getSpeciality());
         doctorEntity.setQualification(userDTO.getQualification());

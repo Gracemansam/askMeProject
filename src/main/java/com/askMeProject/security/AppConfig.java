@@ -1,4 +1,4 @@
-package com.askMeProject.config.securityConfig;
+package com.askMeProject.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
