@@ -29,6 +29,7 @@ public class UserDTO {
     private String speciality;
     private String qualification;
     private String token;
+    private boolean mfaEnabled;
 
     public UserDTO(String firstName, String email, String phoneNumber, String token) {
         this.firstName = firstName;
