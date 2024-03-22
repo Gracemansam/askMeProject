@@ -3,6 +3,8 @@ package com.askMeProject.security;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -38,13 +40,9 @@ public class AppConfig {
 						
 						cfg.setAllowedOrigins(Arrays.asList(
 								
-								"http://localhost:3000",
-								"http://localhost:5454",
-								"http://localhost:4000",
-								"http://localhost:4200",
-								"https://shopwithzosh.vercel.app",
-								"https://ecommerce-angular-blue.vercel.app/"
-								
+								"http://localhost:8082",
+								"http://localhost:5454"
+
 							)
 						);
 						//cfg.setAllowedMethods(Arrays.asList("GET", "POST","DELETE","PUT"));
@@ -74,6 +72,11 @@ public class AppConfig {
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	public TaskScheduler taskScheduler() {
+		return new ThreadPoolTaskScheduler();
 	}
 
 }

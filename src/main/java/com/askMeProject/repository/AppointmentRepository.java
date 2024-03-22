@@ -17,7 +17,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
             "(a.endTime BETWEEN :startTime AND :endTime) OR " +
             "(:startTime BETWEEN a.startTime AND a.endTime) OR " +
             "(:endTime BETWEEN a.startTime AND a.endTime))")
-    List<Appointment> findOverlappingAppointments(@Param("professionalId") Long doctorId,
+    List<Appointment> findOverlappingAppointments(@Param("doctorId") Long doctorId,
                                                   @Param("startTime") LocalDateTime startTime,
                                                   @Param("endTime") LocalDateTime endTime);
 

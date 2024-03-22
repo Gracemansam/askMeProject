@@ -167,6 +167,7 @@ public class UserServiceImplementation implements UserService {
                     .jwt("")
                     .status(true)
                     .mfaEnabled(true)
+                    .secretImageUri(user.getSecret())
                     .build();
             return new ResponseEntity<>(authResponse, HttpStatus.OK);
         }
