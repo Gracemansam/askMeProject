@@ -25,7 +25,7 @@ public class UserDTO {
     @NotNull(message = "Password cannot be null")
     @NotEmpty(message = "Password cannot be empty")
     private String password;
-    private String userName;
+    private String username;
     private String speciality;
     private String qualification;
     private String token;

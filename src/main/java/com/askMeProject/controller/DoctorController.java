@@ -1,5 +1,6 @@
 package com.askMeProject.controller;
 
+import com.askMeProject.dto.UserDTO;
 import com.askMeProject.model.User;
 import com.askMeProject.service.implementation.DoctorService;
 import lombok.RequiredArgsConstructor;
@@ -39,5 +40,10 @@ public class DoctorController {
     public ResponseEntity<List<User>> getDoctorsByQualification(@PathVariable String qualification) {
         List<User> doctors = doctorService.getDoctorsByQualification(qualification);
         return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<User> editDoctor(@PathVariable Long id, @RequestBody UserDTO updatedDoctor) {
+        User editedDoctor = doctorService.editDoctor(id, updatedDoctor);
+        return ResponseEntity.ok(editedDoctor);
     }
 }

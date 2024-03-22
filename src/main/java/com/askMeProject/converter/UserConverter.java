@@ -14,7 +14,7 @@ public class UserConverter {
         patientEntity.setFirstName(userDTO.getFirstName());
         patientEntity.setLastName(userDTO.getLastName());
         patientEntity.setPhoneNumber(userDTO.getPhoneNumber());
-        patientEntity.setUsername(userDTO.getUserName());
+        patientEntity.setUsername(userDTO.getUsername());
         patientEntity.setEmail(userDTO.getEmail());
         return patientEntity;
     }
@@ -23,7 +23,7 @@ public class UserConverter {
         doctorEntity.setFirstName(userDTO.getFirstName());
         doctorEntity.setLastName(userDTO.getLastName());
         doctorEntity.setPassword(userDTO.getPassword());
-        doctorEntity.setUsername(userDTO.getUserName());
+        doctorEntity.setUsername(userDTO.getUsername());
         doctorEntity.setEmail(userDTO.getEmail());
         doctorEntity.setSpeciality(userDTO.getSpeciality());
         doctorEntity.setQualification(userDTO.getQualification());
@@ -37,7 +37,7 @@ public class UserConverter {
         userDTO.setFirstName(userEntity.getFirstName());
         userDTO.setLastName(userEntity.getLastName());
         userDTO.setPhoneNumber(userEntity.getPhoneNumber());
-        userDTO.setUserName(userEntity.getUsername());
+        userDTO.setUsername(userEntity.getUsername());
         return userDTO;
     }
     public UserDTO convertDoctorEntityToDTO(User userEntity){
@@ -47,7 +47,7 @@ public class UserConverter {
         userDTO.setFirstName(userEntity.getFirstName());
         userDTO.setLastName(userEntity.getLastName());
         userDTO.setPhoneNumber(userEntity.getPhoneNumber());
-        userDTO.setUserName(userEntity.getUsername());
+        userDTO.setUsername(userEntity.getUsername());
         userDTO.setQualification(userEntity.getQualification());
         userDTO.setSpeciality(userEntity.getSpeciality());
         return userDTO;
