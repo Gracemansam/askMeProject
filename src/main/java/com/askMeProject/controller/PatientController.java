@@ -1,6 +1,7 @@
 package com.askMeProject.controller;
 
 import com.askMeProject.dto.UserDTO;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.askMeProject.model.User;
@@ -18,6 +19,7 @@ import java.util.List;
 public class PatientController {
     private final PatientService patientService;
 
+    @PreAuthorize("hasAuthority('DOCTOR')")
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllPatients() {
         List<User> patients = patientService.getAllPatients();

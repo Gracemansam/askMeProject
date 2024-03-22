@@ -33,6 +33,11 @@ public class CustomUserDetails implements UserDetailsService {
 		User user = findUser.get();
 		
 		List<GrantedAuthority> authorities = new ArrayList<>();
+		if(user.getAuthorities().equals("DOCTOR")) {
+			authorities.add((GrantedAuthority) () -> "DOCTOR");}
+			if(user.getAuthorities().equals("PATIENT")) {
+				authorities.add((GrantedAuthority) () -> "PATIENT");
+			}
 		
 		return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),authorities);
 	}

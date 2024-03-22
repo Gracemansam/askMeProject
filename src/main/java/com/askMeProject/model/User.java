@@ -31,12 +31,6 @@ public class User extends BaseEntity {
     private String username;
     private String speciality;
     private String qualification;
-//    @ManyToMany(fetch=FetchType.EAGER)
-//    @JoinTable(
-//            name="user_role_junction",
-//            joinColumns = {@JoinColumn(name="user_id")},
-//            inverseJoinColumns = {@JoinColumn(name="role_id")}
-//    )
     private String authorities;
 
 
@@ -48,15 +42,7 @@ public class User extends BaseEntity {
 
 
 
-//    public User() {
-//            super();
-//            authorities = new HashSet<>();
-//    }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return this.authorities;
-//    }
 
 
 }

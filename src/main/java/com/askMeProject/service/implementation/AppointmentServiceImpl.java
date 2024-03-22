@@ -75,7 +75,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
 
 
-        return "Appointment booked successfully, by " + existingPatient.getFirstName() ;
+        return "Appointment booked successfully, by " + existingPatient.getFirstName();
     }
 
     public User findUserByEmail(String email) {
@@ -149,6 +149,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointmentRepository.save(existingAppointment);
         return "Appointment updated successfully by " + patient.getFirstName();
     }
+
     public String cancelAppointment(Long appointmentId, String cancelerEmail) {
         // Fetch the appointment by ID
         Appointment appointment = appointmentRepository.findById(appointmentId)
@@ -166,6 +167,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointmentRepository.delete(appointment);
         return "Appointment cancelled successfully by " + canceler.getFirstName();
     }
+
     private boolean isAuthorizedToCancel(Appointment appointment, User canceler) {
         return appointment.getPatient().equals(canceler);
     }
