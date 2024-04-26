@@ -34,10 +34,10 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     public String bookAppointment(AppointmentDto appointment) {
         // Find patient by email
-        var existingPatient = findUserByEmail(appointment.getPatient().getEmail());
+        var existingPatient = findUserByEmail(appointment.getPatientEmail());
 
 // Find doctor by email
-        var existingDoctor = findUserByEmail(appointment.getDoctor().getEmail());
+        var existingDoctor = findUserByEmail(appointment.getDoctorEmail());
 
 
         // Check if the user initiating the appointment is a patient
@@ -47,15 +47,15 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         // Check if the user being booked is a doctor
         if (!existingDoctor.getAuthorities().equals("DOCTOR")) {
-            return "Only Doctor can book appointments.";
+            return "Only Doctor can be booked appointments.";
         }
         // Check doctor's availability
         if (!isDoctorAvailable(existingDoctor.getId(), appointment.getStartTime(), appointment.getEndTime())) {
             return "Doctor is not available at the specified time.";
         }
         var newAppointment = Appointment.builder()
-                .patient(appointment.getPatient())
-                .doctor(appointment.getDoctor())
+                .patient(existingPatient)
+                .doctor(existingDoctor)
                 .note(appointment.getNote())
                 .status(AppointmentStatus.SCHEDULED)
                 .startTime(appointment.getStartTime())
@@ -68,10 +68,10 @@ public class AppointmentServiceImpl implements AppointmentService {
             sendAppointmentConfirmation(newAppointment);
 
             // Schedule appointment reminder 5 minutes before the appointment
-            scheduleAppointmentReminder(newAppointment);
+         //   scheduleAppointmentReminder(newAppointment);
         } catch (Exception e) {
             // Handle exception if email sending fails
-            return "Appointment booked successfully, but failed to send reminders.";
+            return "error" + e.getMessage();
         }
 
 
@@ -134,7 +134,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                         new RuntimeException("Appointment not found."));
 
         // Check if the patient owns the appointment
-        User patient = findUserByEmail(modifiedAppointment.getPatient().getEmail());
+        User patient = findUserByEmail(modifiedAppointment.getPatientEmail());
         if (!existingAppointment.getPatient().equals(patient)) {
             throw new RuntimeException("You are not authorized to modify this appointment.");
         }

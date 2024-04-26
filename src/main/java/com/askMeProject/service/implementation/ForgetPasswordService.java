@@ -54,7 +54,7 @@ public class ForgetPasswordService {
         System.out.println("Sending OTP to " + email + ": " + otp);
 
     }
-    public String resetPassword(String email, String otp,String newPassword) {
+    public String resetPassword(String email,String newPassword) {
         Optional<User> user =userRepository.findByEmail(email);
         if(!user.isPresent()){
             ErrorModel error = new ErrorModel();

@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class AppointmentDto {
-    private String status;
+
     private String note;
-    private User patient;
-    private User doctor;
+    private String patientEmail;
+    private String doctorEmail;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 }

@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/forgetPassword")
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 
 public class ForgetPasswordController {
@@ -39,10 +39,10 @@ public class ForgetPasswordController {
         }
     }
 
-    @PostMapping("/reset-password/{email}/{otp}")
-    public String resetPassword(@PathVariable String email, @PathVariable String otp, @RequestParam String newPassword) {
+    @PostMapping("/reset-password/{email}")
+    public String resetPassword(@PathVariable String email, @RequestParam String newPassword) {
         try {
-            forgetPasswordService.resetPassword(email, otp,newPassword);
+            forgetPasswordService.resetPassword(email,newPassword);
             return "Password reset successfully";
         } catch (Exception e) {
             return "Error resetting password: " + e.getMessage();
